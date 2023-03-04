@@ -38,18 +38,27 @@ class ProdutoController {
         name: name,
         description: description,
         price: price
-      }, { where: { id: id} }).then(() => {
-        res.redirect('/produtos')
-      });
+      }, { where: { id: id } })
+      return res.redirect('/produtos')
+
     } catch (error) {
-      console.error(`Erro ao cadastar produto ${error}`);
-      res.status(500).json({ error: 'Erro ao cadastrar produto' });
+      console.error(`Erro ao atualizar produto ${error}`);
+      res.status(500).json({ error: 'Erro ao atualizar produto' });
     }
   }
 
-
-
-
+  async deletarProduto(req, res) {
+    try {
+      const id = req.body.id;
+      const produtos = await Produto.destroy({
+        where: { id: id }
+      });
+      res.redirect('/produtos')
+    } catch (error) {
+      console.error(`Erro ao deletar produto ${error}`);
+      res.status(500).json({ error: 'Erro ao deletar produto' });
+    }
+  }
 }
 
 module.exports = new ProdutoController;

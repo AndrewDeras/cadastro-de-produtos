@@ -10,8 +10,10 @@ router.get('/produto/:id', ProdutoController.listarProduto);
 router.get('/produtos/novo', (req, res) => {
   res.render('index')
 });
-router.post('/produtos', ProdutoController.cadastrarProdutos);
-router.post('produto/update', ProdutoController.atualizarProduto);
+router.post('/produto', ProdutoController.cadastrarProdutos);
+router.post('/produto/update', ProdutoController.atualizarProduto);
+router.post('/produto/delete', ProdutoController.deletarProduto);
+
 
 router.get('/produto/:id/editar', (req, res) => {
   const id = req.params.id;

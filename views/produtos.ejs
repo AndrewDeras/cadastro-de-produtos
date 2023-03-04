@@ -1,6 +1,6 @@
 <%-include('partials/header.ejs')%>
 <div class="container text-center">
-  <h1>ohb produtos</h1>
+  <h1>OHB produtos</h1>
   <div class="container">
     <table class="table table-striped table-hover table-bordered border-dark">
       <thead>
@@ -12,23 +12,31 @@
           <th scope="col">AÇÕES</th>
         </tr>
       </thead>
-      <tbody  >
+      <tbody>
         <% produtos.forEach(({id, name, description, price})=>{ %>
-          <tr>
-            <td> <%= id %> </td>
-            <td> <%= name %> </td>
-            <td> <%= description %> </td>
-            <td> <%= price %> </td>
-            <td>
-              <a class="btn btn-warning" href="/produto/<%=id%>/editar">Editar</a>
-            </td>
-          </tr>
+        <tr>
+          <td><%= id %></td>
+          <td><%= name %></td>
+          <td><%= description %></td>
+          <td><%= price %></td>
+          <td>
+            <div class="d-flex justify-content-center align-items-center">
+              <a class="btn btn-warning me-1" href="/produto/<%=id%>/editar">Editar</a>
+              <form method="post" action="/produto/delete" >
+                <input type="hidden" name="id" value="<%=id%>" />
+                <button class="btn btn-danger">Deletar</button>
+              </form>
+            </div>
+          </td>
+        </tr>
         <% }) %>
       </tbody>
     </table>
     <div class="row">
       <div class="col">
-        <a class="btn btn-primary" href="/produtos/novo">Cadastrar novo produto</a>
+        <a class="btn btn-primary" href="/produtos/novo"
+          >Cadastrar novo produto</a
+        >
       </div>
     </div>
   </div>
