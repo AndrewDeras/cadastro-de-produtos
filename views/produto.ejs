@@ -1,0 +1,30 @@
+<%-include('partials/header.ejs')%>
+<div class="container text-center">
+  <h1>ohb produtos</h1>
+  <div class="container">
+    <table class="table table-striped table-hover table-bordered border-dark">
+      <thead>
+        <tr>
+          <th scope="col">ID</th>
+          <th scope="col">NOME</th>
+          <th scope="col">DESCRIÇÃO</th>
+          <th scope="col">PREÇO</th>
+        </tr>
+      </thead>
+      <tbody  >
+          <tr>
+            <td> <%= produto.id %> </td>
+            <td> <%= produto.name %> </td>
+            <td> <%= produto.description %> </td>
+            <td> <%= produto.price %> </td>
+          </tr>
+      </tbody>
+    </table>
+    <div class="row">
+      <div class="col">
+        <a class="btn btn-primary" href="/produtos/novo">Cadastrar novo produto</a>
+      </div>
+    </div>
+  </div>
+</div>
+<%-include('partials/footer.ejs')%>

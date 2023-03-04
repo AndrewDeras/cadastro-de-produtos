@@ -1,0 +1,21 @@
+<%-include('partials/header.ejs')%>
+<div class="container text-center">
+  <h3>Cadastrar produto</h3>
+  <form method="post" action="/produto/update">
+    <input value="<%=produto.id%>" type="hidden" name="id"  >
+    <div class="mb-3">
+      <label class="form-label">Nome</label>
+      <input value="<%=produto.name%>" type="text" class="form-control" name="name" id="name" aria-describedby="nome">
+    </div>
+    <div class="mb-3">
+      <label  class="form-label">Descrição</label>
+      <input  value="<%=produto.description%>"type="text" class="form-control" id="description" name="description">
+    </div>
+    <div class="mb-3">
+      <label  class="form-label">Preço</label>
+      <input value="<%=produto.price%>" type="number" step="any" class="form-control" id="price" name="price">
+    </div>
+    <button type="submit" class="btn btn-primary">Editar</button>
+  </form>
+</div>
+<%-include('partials/footer.ejs')%>
