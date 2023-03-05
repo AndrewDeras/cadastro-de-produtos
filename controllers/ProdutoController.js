@@ -21,6 +21,23 @@ class ProdutoController {
     }
   }
 
+  async buscarProdutos(req, res) {
+    try {
+      const query = req.params.q;
+      const produtos = await Produto.findAll({
+        where: {
+          name: {
+            [Op.iLike]: `%${query}%`
+          }
+        }
+      });
+      res.render('busca', { produtos: produtos });
+    } catch (error) {
+      console.error(`Erro ao buscar produtos ${error}`);
+      res.status(500).json({ error: 'Erro ao buscar produtos' });
+    }
+  }
+
   async cadastrarProdutos(req, res) {
     try {
       const produtos = await Produto.create(req.body);

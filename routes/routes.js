@@ -6,6 +6,7 @@ const router = express.Router();
 
 router.get('/produtos', ProdutoController.listarProdutos);
 router.get('/produto/:id', ProdutoController.listarProduto);
+router.get('/produtos/buscar', ProdutoController.buscarProdutos);
 
 router.get('/produtos/novo', (req, res) => {
   res.render('index')

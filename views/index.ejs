@@ -2,19 +2,20 @@
 <div class="container text-center">
   <h3>Cadastrar produto</h3>
   <form method="post" action="/produto">
-    <div class="mb-3">
-      <label class="form-label">Nome</label>
+    <div class="form-floating mb-3">
       <input type="text" class="form-control" name="name" id="name" aria-describedby="nome">
+      <label for="floatingPassword" >Nome</label>
     </div>
-    <div class="mb-3">
-      <label  class="form-label">Descrição</label>
+    <div class="form-floating mb-3">
       <input type="text" class="form-control" id="description" name="description">
+      <label for="floatingPassword"  >Descrição</label>
     </div>
-    <div class="mb-3">
-      <label  class="form-label">Preço</label>
+    <div class="form-floating mb-3">
       <input type="number" step="any" class="form-control" id="price" name="price">
+      <label for="floatingPassword"  >Preço</label>
     </div>
     <button type="submit" class="btn btn-primary">Cadastrar</button>
   </form>
+  
 </div>
 <%-include('partials/footer.ejs')%>
